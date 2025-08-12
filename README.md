@@ -7,21 +7,33 @@ The first phase — installation of the Wazuh Manager and endpoint agents — ha
 
 
 📄 **Current Documentation:**  
-- [01 – Wazuh Manager & Agent Installation](docs/01-wazuh-installation.md)
+- [01 – Wazuh Manager & Agent Installation](Wazuh-Manager/README.md)
 
 ---
 
 ## Repository Structure
 
-📂 soc-lab
+📂 soc-lab/
 ├── README.md
-├── docs/
-│ └── 01-wazuh-installation.md
-├── images/
-│ ├── wazuh-manager-install.png
-│ ├── wazuh-agent-windows.png
-│ └── wazuh-agent-linux.png
-└── configs/
+├── Wazuh-Installation/
+│   ├── README.md
+│   ├── screenshots/
+│   ├── configs/
+│   └── troubleshooting/
+├── Wazuh-Agents/
+│   ├── README.md
+│   ├── Windows-Agent/
+│   │   ├── screenshots/
+│   │   └── configs/
+│   └── Linux-Agent/
+│       ├── screenshots/
+│       └── configs/
+├── Network-Setup/
+│   ├── README.md
+│   └── network-diagrams/
+└── Lab-Notes/
+    ├── lessons-learned.md
+    └── future-enhancements.md
 
 
 ---
