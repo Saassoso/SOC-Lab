@@ -5,6 +5,8 @@ This document covers the installation of 4 Wazuh agents on different platforms: 
 
 Each agent will be assigned a unique name and group for better management and will be installed using the appropriate Wazuh agent package and installation commands.
 
+Wazuh agent enrollment is the process of registering a Wazuh agent to a Wazuh manager. This enrollment allows the Wazuh agents to communicate securely with the Wazuh manager and become authorized members of the Wazuh security platform.
+
 ---
 
 ## Agents List  
