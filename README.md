@@ -12,7 +12,7 @@ The sixth phase - Container security -
 The seventh phase - Security configuration assessment (SCA) - is comming next. 
 📄 **Current Documentation:**  
 - [01 – Wazuh Manager Installation](Wazuh-Installation/README.md)
-- [02 – Wazuh Agent Installation](Wazuh-Agent/README.md)
+- [02 – Wazuh Agent Installation](Wazuh-Agents/README.md)
 ---
 
 ## Repository Structure
