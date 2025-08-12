@@ -55,7 +55,6 @@ From the deployment wizard:
    > **Note**: The agent name must be unique and cannot be changed once enrolled. If left blank, the hostname will be used.
 
 2. **Select one or more existing groups**:
-   - Select **"windows-agents"** group (create if it doesn't exist)
    - Default group is available if no custom group is needed
 
    ![Optional Settings](screenshots/04-optional-settings.png)
