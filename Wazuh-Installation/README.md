@@ -135,7 +135,7 @@ Check specific agent status:
 sudo /var/ossec/bin/agent_control -i 001
 ```
 
-![Agent Details](screenshots/15-con-agent.png)
+![Agent Details](screenshots/15-con-agents.png)
 
 ---
 
