@@ -7,7 +7,7 @@ The first phase — installation of the Wazuh Manager and endpoint agents — ha
 
 
 📄 **Current Documentation:**  
-- [01 – Wazuh Manager & Agent Installation](Wazuh-Manager/README.md)
+- [01 – Wazuh Manager & Agent Installation](Wazuh-Installation/README.md)
 
 ---
 
