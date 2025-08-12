@@ -3,12 +3,16 @@
 
 ## Overview
 This repository documents the setup of the SOC lab using multiple virtual machines.  
-The first phase — installation of the Wazuh Manager and endpoint agents — has been completed.
-
-
+The first phase - installation of the Wazuh Manager and endpoint agents - has been completed.
+The second phase - configuration of File integrity monitoring - has been completed.
+The thrid phase - File integrity monitoring (FIM) - 
+The fourth phase - System Audit(Sysmon, Auditd) - 
+The fifth phase - Log collector - 
+The sixth phase - Container security - 
+The seventh phase - Security configuration assessment (SCA) - is comming next. 
 📄 **Current Documentation:**  
-- [01 – Wazuh Manager & Agent Installation](Wazuh-Installation/README.md)
-
+- [01 – Wazuh Manager Installation](Wazuh-Installation/README.md)
+- [02 – Wazuh Agent Installation](Wazuh-Agent/README.md)
 ---
 
 ## Repository Structure
@@ -22,13 +26,23 @@ The first phase — installation of the Wazuh Manager and endpoint agents — ha
 │   ├── configs/
 │   └── troubleshooting/
 ├── Wazuh-Agents/
-│   ├── README.md
-│   ├── Windows-Agent/
+│   ├── Windows/
 │   │   ├── screenshots/
+|   │   ├── README.md
 │   │   └── configs/
-│   └── Linux-Agent/
-│       ├── screenshots/
-│       └── configs/
+│   ├── kali/
+│   │   ├── screenshots/
+|   │   ├── README.md
+│   │   └── configs/
+│   ├── RHEL/
+│   │   ├── screenshots/
+|   │   ├── README.md
+│   │   └── configs/
+│   ├── WSL/
+│   │   ├── screenshots/
+|   │   ├── README.md
+│   │   └── configs/
+|   └── README.md
 ├── Network-Setup/
 │   ├── README.md
 │   └── network-diagrams/
@@ -39,6 +53,9 @@ The first phase — installation of the Wazuh Manager and endpoint agents — ha
 
 ---
 
-## Status
-✅ Wazuh Manager and agents installed  
-🟡 Configurations and monitoring features coming next
+## Progress
+- [x] Wazuh Manager Installed ([details](Wazuh-Manager/README.md))
+- [x] Windows Agent Installed ([details](Wazuh-Agents/Windows/README.md))
+- [x] WSL Agent Installed ([details](Wazuh-Agents//README.md))
+- [x] kalli Agent Installed ([details](Wazuh-Agents//README.md))
+- 
