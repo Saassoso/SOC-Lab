@@ -13,6 +13,7 @@ The first phase — installation of the Wazuh Manager and endpoint agents — ha
 
 ## Repository Structure
 
+```bash
 📂 soc-lab/
 ├── README.md
 ├── Wazuh-Installation/
@@ -34,7 +35,7 @@ The first phase — installation of the Wazuh Manager and endpoint agents — ha
 └── Lab-Notes/
     ├── lessons-learned.md
     └── future-enhancements.md
-
+```
 
 ---
 
