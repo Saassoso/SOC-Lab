@@ -146,6 +146,8 @@ The main configuration file is located at:
 ```
 /var/ossec/etc/ossec.conf
 ```
+I've put a copy of the file in configs/ossec.conf
+
 
 ### Logs Location
 Wazuh logs are stored in:
@@ -162,4 +164,6 @@ sudo tail -f /var/ossec/logs/alerts/alerts.log
 ![Recent Alerts](screenshots/16-recent-alerts.png)
 
 ---
+
+
 
