@@ -342,7 +342,7 @@ sudo /var/ossec/bin/ossec-control info
 # Debug mode
 sudo /var/ossec/bin/wazuh-control start-debug
 ```
-<!-->
+<!--
 
 ## Integration with Kali Tools
 
