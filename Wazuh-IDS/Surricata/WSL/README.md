@@ -141,6 +141,7 @@
      </localfile>
    </ossec_config>
    ```
+   ![log-file](screenshots/08-log-file.png)
 
 2. **Restart Wazuh agent**:
    ```bash
@@ -148,3 +149,10 @@
    ```
 
    ![Wazuh Integration](screenshots/07-wazuh-integration.png)
+
+   ---
+
+**Last Updated**: August 2025  
+**Suricata Version**: 8.0.0
+**Tested On**: Windows Subsystem for linux 
+**Integration**: Wazuh SIEM v4.12.0
