@@ -18,7 +18,7 @@ Network-based Intrusion Detection Systems (NIDS) monitor network traffic in real
 
 ### Suricata: High-Performance Network Security Engine
 
-![Suricata Logo](https://images.app.goo.gl/sbTJnLCKQkLB3UBv9)
+![Suricata Logo](https://suricata.io/wp-content/uploads/2023/09/Logo-Suricata-vert-whitetype-R.png)
 
 Suricata is a high-performance Network IDS, IPS, and Network Security Monitoring engine that provides:
 - **Real-time intrusion detection** with rule-based analysis
