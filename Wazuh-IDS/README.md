@@ -1,4 +1,4 @@
-# Suricata Installation - General Overview
+# Wazuh-IDS - General Overview
 
 ## Overview
 
@@ -16,19 +16,6 @@ Network-based Intrusion Detection Systems (NIDS) monitor network traffic in real
 - **Network-based attacks** such as port scans and DDoS
 - **Protocol anomalies** and malformed packets
 
-### Suricata: High-Performance Network Security Engine
-
-![Suricata Logo](https://suricata.io/wp-content/uploads/2023/09/Logo-Suricata-vert-whitetype-R.png)
-
-Suricata is a high-performance Network IDS, IPS, and Network Security Monitoring engine that provides:
-- **Real-time intrusion detection** with rule-based analysis
-- **Multi-threaded architecture** for high-throughput environments  
-- **Protocol analysis** for HTTP, TLS, DNS, SMTP, and more
-- **File extraction and analysis** capabilities
-- **JSON logging** for easy SIEM integration
-
----
-
 ## Infrastructure Deployment Strategy
 
 This implementation demonstrates Suricata deployment across **heterogeneous infrastructure environments** to showcase flexibility and cross-platform compatibility:
@@ -37,8 +24,9 @@ This implementation demonstrates Suricata deployment across **heterogeneous infr
 
 | Infrastructure  | Platform        | Version       | Instance Name | Purpose         | Installation Guide |
 | --------------- | --------------- | ------------- | ------------- | --------------- | ------------------ |
-| **Windows**     | Windows 11      | 22H2          | SURICATA-WIN  | Network IDS/IPS | [📖 Windows 11 Guide](./Windows/README.md) |
-| **Linux**       | WSL Ubuntu      | 24.04 LTS     | SURICATA-WSL  | Network IDS/IPS | [📖 WSL Ubuntu Guide](./WSL/README.md) |
+| **Windows**     | Windows 11      | 22H2          | Windows  | Network IDS/IPS | [📖 Windows 11 Guide](./Surricata/Windows/README.md) |
+| **Linux**       | WSL Ubuntu      | 24.04 LTS     | WSL  | Network IDS/IPS | [📖 WSL Ubuntu Guide](./Surricata/WSL/README.md) |
+
 
 ### Why Two Infrastructure Approaches?
 
@@ -57,49 +45,24 @@ This implementation demonstrates Suricata deployment across **heterogeneous infr
 ---
 
 
-## Common Suricata Setup Components
-
-All Suricata installations include these core components:
-
-### 1. Core Engine
-- **High-performance network packet processing** using multi-threading
-- **Rule-based detection engine** with ET Open ruleset
-- **Protocol analysis** for HTTP, TLS, DNS, SMTP, and more
-
-### 2. Rule Management
-- **Emerging Threats Open rules** (free ruleset)
-- **Custom rule configuration** for specific threats
-- **Rule update automation** for latest threat intelligence
-
-### 3. Logging and Alerting
-- **EVE JSON logging** for structured output
-- **Alert generation** for detected threats
-- **Performance statistics** and monitoring metrics
-
-### 4. Integration Capabilities
-- **Wazuh SIEM integration** via log forwarding
-- **Network tap/mirror compatibility**
-- **PCAP file analysis** for forensics
-
----
-
 ## Directory Structure
 
 This documentation is organized with platform-specific guides in their respective directories:
 
 ``` bash
-suricata-installation/
-├── Windows/
-│   ├── README.md                 # Windows 11 installation guide
-│   ├── configs/                  # suricata.yaml, rules/
-│   └── screenshots/              # Windows 11 screenshots
-├── WSL/
-│   ├── README.md                 # WSL Ubuntu installation guide
-│   ├── configs/                  # suricata.yaml, rules/
-│   └── screenshots/              # WSL Ubuntu screenshots
+Wazuh-IDS
+|   Surricata/
+|   ├── Windows/
+|   │   ├── README.md                 # Windows 11 installation guide
+|   │   └── screenshots/              # Windows 11 screenshots
+|   ├── WSL/
+|   │   ├── README.md                 # WSL Ubuntu installation guide
+|   │   └── screenshots/              # WSL Ubuntu screenshots
+|   └──  README.md   
 └──  README.md                     # This overview document
-  
 ```
+
+
 ### Additional Resources
 - **Suricata Documentation**: [Suricata Docs](https://suricata.readthedocs.io/en/latest/)
 - **Wazuh Documentation**: [Wazuh Docs](https://documentation.waz
