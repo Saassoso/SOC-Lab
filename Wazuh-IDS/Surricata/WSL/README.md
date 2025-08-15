@@ -9,7 +9,7 @@
 
 ## Environment Details
 
-- **Instance Name**: `SURICATA-WSL`
+- **Instance Name**: `WSL`
 - **WSL Distribution**: Ubuntu 24.04 LTS
 - **Target Network**: (WSL shares the same network address as the Windows PC)
 - **Log Integration**: Wazuh Manager at `192.168.88.130`
@@ -19,14 +19,15 @@
 ### Step 1: Install Suricata on WSL Ubuntu
 
 1. **Update system and add Suricata repository**:
-   ```bash
+
+ ```bash
    # Update package lists
    sudo apt update
    ```
 
  ![apt-update](./screenshots/01-apt-update.png)
 
-   ```bash
+```bash
    # Add OISF repository
    sudo add-apt-repository ppa:oisf/suricata-stable
    sudo apt-get update
@@ -35,7 +36,7 @@
  ![Add-OISF-repository](./screenshots/02-Add-OISF-repository.png)
 
 2. **Install Suricata**:
-   ```bash
+```bash
    # Install Suricata (tested with version 6.0.8)
    sudo apt-get install suricata -y
    
@@ -49,7 +50,7 @@
 
 1. **Download and extract rules**:
 
-   ```bash
+ ```bash
    # Download rules to temporary directory
    cd /tmp/ && curl -LO https://rules.emergingthreats.net/open/suricata-6.0.8/emerging.rules.tar.gz
 
@@ -66,17 +67,17 @@
 
 1. **Edit Suricata configuration**:
 
-   ```bash
+```bash
    # Edit the main configuration file
    sudo nano /etc/suricata/suricata.yaml
    ```
 
 2. **Modify key settings**:
 
-   ```yaml
+```yaml
    vars:
      address-groups:
-       HOME_NET: "192.168.88.0/24"  # Your network range
+       HOME_NET: "172.20.39.112"  # Your network range
        EXTERNAL_NET: "any"
 
    default-rule-path: /etc/suricata/rules
@@ -95,21 +96,21 @@
    ![Configuration Edit](screenshots/05-config-edit.png)
 
    3. **Restart Suricata Service**:
-```bash
-   
+```bash 
    sudo systemclt restart suricata
    ```
 
 ### Step 4: Verify Network Interface
 
 1. **Check network interface name**:
-   ```bash
+
+```bash
    # List network interfaces
    ifconfig
    ```
 
     Output:
-   ```bash
+```bash
     eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 172.20.39.112  netmask 255.255.240.0  broadcast 172.20.47.255
         inet6 fe80::215:5dff:feab:8479  prefixlen 64  scopeid 0x20<link>
@@ -127,13 +128,13 @@
 ### Step 5: Configure Wazuh Integration
 
 1. **Add Suricata log monitoring to Wazuh agent**:
-   ```bash
+```bash
    # Edit Wazuh agent configuration
    sudo nano /var/ossec/etc/ossec.conf
    ```
 
    Add the following configuration:
-   ```xml
+```xml
    <ossec_config>
      <localfile>
        <log_format>json</log_format>
@@ -144,10 +145,10 @@
    ![log-file](screenshots/08-log-file.png)
 
 2. **Restart Wazuh agent**:
-   ```bash
+```bash
    sudo systemctl restart wazuh-agent
    ```
-
+   
    ![Wazuh Integration](screenshots/07-wazuh-integration.png)
 
    ---

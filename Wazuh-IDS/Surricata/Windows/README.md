@@ -9,7 +9,7 @@
 
 ## Environment Details
 
-- **Instance Name**: `SURICATA-WIN`
+- **Instance Name**: `Windows`
 - **Target Network**: `192.168.88.0/24`
 - **Management Interface**: Primary network adapter
 - **Log Integration**: Wazuh Manager at `192.168.88.130`
@@ -20,7 +20,6 @@
 
 1. **Download the Windows installer**:
 
-
    ![Suricata Download](screenshots/01-suricata-download.png)
 
 ### Step 2: Install Suricata
@@ -29,13 +28,6 @@
 
 ![Suricata Download](screenshots/02-suricata-exe.png)
 
-2. **Verify installation**:
-   ```powershell
-   # Check version
-   & "C:\Program Files\Suricata\suricata.exe" --version
-   ```
-
-   ![Suricata Installation](screenshots/02-suricata-installation.png)
 
 ### Step 3: Download Emerging Threats Rules
 
