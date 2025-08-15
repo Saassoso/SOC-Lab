@@ -24,7 +24,12 @@
 
 ### Step 2: Install Suricata
 
-1. **Run the MSI installer as Administrator**:
+1. **Instal Npcap**:
+Suricata on Windows depends on Npcap (or WinPcap) to capture packet
+
+ ![npcap](./screenshots/02-1-npcap.png)
+
+2. **Run the MSI installer as Administrator**:
 
 ![Suricata Download](screenshots/02-suricata-exe.png)
 
@@ -32,10 +37,15 @@
 ### Step 3: Download Emerging Threats Rules
 
 1. **Download and extract rules**:
-   ```powershell
+```powershell
    # Create rules directory
    New-Item -Path "C:\Program Files\Suricata\rules" -ItemType Directory -Force
-   
+```
+
+ ![Rule-dir](./screenshots/03-rule-dir.png)
+
+
+```powershell
    # Download rules
    cd "C:\Program Files\Suricata\rules"
    Invoke-WebRequest -Uri "https://rules.emergingthreats.net/open/suricata-6.0.8/emerging.rules.tar.gz" -OutFile "emerging.rules.tar.gz"
@@ -44,22 +54,31 @@
    # After extraction, ensure *.rules files are in C:\Program Files\Suricata\rules\
    ```
 
-   ![Rules Download](screenshots/03-rules-download.png)
+   ![Rules Download](screenshots/04-rules-download.png)
 
 ### Step 4: Configure Suricata
 
-1. **Edit the configuration file**:
+1. **Get Network Interface**:
+
+```powershell
+PS C:\Program Files\Suricata> Get-NetAdapter | ForEach-Object {
+>>     $guid = $_.InterfaceGuid
+>>     Write-Output "\Device\NPF_{$guid}  ($($_.Name))"
+>> }
+```
+
+2. **Edit the configuration file**:
    ```powershell
    # Edit Suricata configuration
    notepad "C:\Program Files\Suricata\suricata.yaml"
    ```
 
-2. **Modify key settings**:
+3. **Modify key settings**:
    ```yaml
    vars:
      address-groups:
        HOME_NET: "192.168.88.0/24"
-       EXTERNAL_NET: "!$HOME_NET"
+       EXTERNAL_NET: "any"
 
    default-rule-path: C:\Program Files\Suricata\rules
    rule-files:
@@ -82,6 +101,8 @@
 
    ![Configuration Edit](screenshots/04-config-edit.png)
 
+
+
 ### Step 5: Configure Wazuh Integration
 
 1. **Add Suricata log monitoring to Wazuh agent**:
@@ -98,7 +119,8 @@
 
 2. **Restart Wazuh agent**:
    ```powershell
-   Restart-Service wazuh-agent
+   Restart-Service wazuh
+
    ```
 
    ![Wazuh Integration](screenshots/05-wazuh-integration.png)
@@ -108,27 +130,8 @@
 1. **Start Suricata service**:
    ```powershell
    # Start Suricata (adjust interface name as needed)
-   Start-Process -FilePath "C:\Program Files\Suricata\suricata.exe" -ArgumentList "-c","C:\Program Files\Suricata\suricata.yaml","-i","Ethernet" -WindowStyle Hidden
+   Start-Process -FilePath "C:\Program Files\Suricata\suricata.exe" -ArgumentList "-c","C:\Program Files\Suricata\suricata.yaml","-i","Ethernet0" -WindowStyle Hidden
    ```
-
-   ![Start Suricata](screenshots/06-start-suricata.png)
-
-## Attack Emulation
-
-Wazuh automatically parses data from the Suricata EVE JSON logs and generates related alerts on the Wazuh dashboard.
-
-1. **Generate test traffic from another machine**:
-   ```bash
-   # From Wazuh server or another machine, ping the Windows endpoint
-   ping -c 20 "192.168.88.XXX"  # Replace with Windows IP
-   ```
-
-2. **Browse to test websites**:
-   ```powershell
-   # Generate HTTP traffic that might trigger rules
-   Invoke-WebRequest -Uri "http://testmynids.org/uid/index.html"
-   ```
-
 
 
 ## Additional Resources
