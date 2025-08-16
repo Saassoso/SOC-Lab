@@ -51,14 +51,15 @@ This documentation is organized with platform-specific guides in their respectiv
 
 ``` bash
 Wazuh-IDS
-|   Surricata/
+├── Surricata/
 |   ├── Windows/
 |   │   ├── README.md                 # Windows 11 installation guide
 |   │   └── screenshots/              # Windows 11 screenshots
 |   ├── WSL/
 |   │   ├── README.md                 # WSL Ubuntu installation guide
 |   │   └── screenshots/              # WSL Ubuntu screenshots
-|   └──  README.md   
+|   └──  README.md  
+├──  Zeek                           # In the future if wanting to enhance Network monitoring  
 └──  README.md                     # This overview document
 ```
 
