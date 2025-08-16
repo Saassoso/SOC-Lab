@@ -15,10 +15,10 @@ The goal is to:
 Run the following command on your Wazuh Manager:
 
 ```bash
-sudo /var/ossec/bin/agent_groups -a linux
+sudo /var/ossec/bin/agent_groups -a -g linux -q
 ```
 
-![Group Creation](screenshots/01-group_creation.png)
+![Group Creation](./screenshots/01-group_creation.png)
 
 ----
 
@@ -32,28 +32,6 @@ Path to configuration file:
 
 **Configuration:**
 
-```xml
-<ossec_config>
-  <syscheck>
-    <!-- 🔹 System binaries -->
-    <directories check_all="yes" realtime="yes">/bin</directories>
-    <directories check_all="yes" realtime="yes">/sbin</directories>
-    <directories check_all="yes" realtime="yes">/usr/bin</directories>
-    <directories check_all="yes" realtime="yes">/usr/sbin</directories>
-
-    <!-- 🔹 Critical system configs -->
-    <directories check_all="yes" realtime="yes">/etc</directories>
-
-    <!-- 🔹 Boot and kernel files -->
-    <directories check_all="yes" realtime="yes">/boot</directories>
-
-    <!-- 🔹 Optional: log integrity -->
-    <directories check_all="yes">/var/log</directories>
-  </syscheck>
-</ossec_config>
-```
-
-**📸 Screenshot:**
 ![Config File Editing](screenshots/02-config_edit.png)
 
 ---
@@ -63,10 +41,9 @@ Path to configuration file:
 Replace `<agent_id>` with the actual ID of the agent:
 
 ```bash
-sudo /var/ossec/bin/agent_groups -a linux -i <agent_id>
+sudo /var/ossec/bin/agent_groups -a -i <agent_id> -g linux
 ```
 
-**📸 Screenshot:**
 ![Agent Assignment](screenshots/03-agent_assignment.png)
 
 ---
@@ -77,7 +54,6 @@ sudo /var/ossec/bin/agent_groups -a linux -i <agent_id>
 sudo systemctl restart wazuh-manager
 ```
 
-**📸 Screenshot:**
 ![Manager Restart](screenshots/04-manager_restart.png)
 
 ---
@@ -97,7 +73,7 @@ Security Events → Integrity Monitoring
 ```
 
 **📸 Screenshot:**
-![FIM Alert Example](screenshots/fim_alert.png)
+![FIM Alert Example](screenshots/05-fim_alert.png)
 
 ---
 

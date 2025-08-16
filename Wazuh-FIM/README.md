@@ -40,9 +40,10 @@ These configurations are designed to:
 
 ### **1. Create Agent Groups**
 ```bash
-sudo /var/ossec/bin/agent_groups -a linux
-sudo /var/ossec/bin/agent_groups -a windows
+sudo /var/ossec/bin/agent_groups -a -g linux -q
+sudo /var/ossec/bin/agent_groups -a -g windows -q
 ````
+ ![Wazuh-Groups](./screeenshots/01-Wazuh-groups.png)
 
 ---
 
@@ -58,10 +59,11 @@ sudo /var/ossec/bin/agent_groups -a windows
 
 ```bash
 # Linux
-sudo /var/ossec/bin/agent_groups -a linux -i <agent_id>
+sudo /var/ossec/bin/agent_groups -a -i <agent_id> -g linux
 
 # Windows
-sudo /var/ossec/bin/agent_groups -a windows -i <agent_id>
+sudo /var/ossec/bin/agent_groups -a -i <agent_id> -g windows
+
 ```
 
 ---

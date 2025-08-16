@@ -62,10 +62,10 @@ Suricata on Windows depends on Npcap (or WinPcap) to capture packet
 
 ```powershell
 PS C:\Program Files\Suricata> Get-NetAdapter | ForEach-Object {
->>     $guid = $_.InterfaceGuid
->>     Write-Output "\Device\NPF_{$guid}  ($($_.Name))"
->> }
+ $guid = $_.InterfaceGuid
+     Write-Output "\Device\NPF_{$guid}  ($($_.Name))" }
 ```
+
 
 2. **Edit the configuration file**:
    ```powershell
@@ -127,12 +127,17 @@ PS C:\Program Files\Suricata> Get-NetAdapter | ForEach-Object {
 
 ### Step 6: Start Suricata
 
-1. **Start Suricata service**:
-   ```powershell
-   # Start Suricata (adjust interface name as needed)
-   Start-Process -FilePath "C:\Program Files\Suricata\suricata.exe" -ArgumentList "-c","C:\Program Files\Suricata\suricata.yaml","-i","Ethernet0" -WindowStyle Hidden
-   ```
+1. **Start Suricata**:
 
+ ![Start-suricata](./screenshots/06-Start-suricata.png)
+
+2. **Create Suricata Service**:
+
+ ![Suricata-Service](./screenshots/07-Suricata-Service.png)
+
+3. **Start Suricata Service**:
+
+ ![start-Service](./screenshots/08-Start-Service.png)
 
 ## Additional Resources
 
@@ -145,5 +150,5 @@ PS C:\Program Files\Suricata> Get-NetAdapter | ForEach-Object {
 
 **Last Updated**: August 2025  
 **Suricata Version**: 8.0.0 
-**Tested On**: Windows 11 Pro 22H2  
+**Tested On**: Windows 11   
 **Integration**: Wazuh SIEM v4.12.0
