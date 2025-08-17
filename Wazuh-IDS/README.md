@@ -45,9 +45,10 @@ This implementation demonstrates Suricata deployment across **heterogeneous infr
 ---
 
 
-## Directory Structure
+---
 
-This documentation is organized with platform-specific guides in their respective directories:
+## 📂 Repository Structure
+
 
 ``` bash
 Wazuh-IDS

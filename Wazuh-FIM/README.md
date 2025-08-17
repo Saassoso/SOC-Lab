@@ -82,3 +82,12 @@ sudo systemctl restart wazuh-manager
 * Keep `realtime="yes"` for critical paths.
 * Ignore volatile directories on Kali to reduce false positives.
 * Monitor persistence registry keys on Windows for malware detection.
+
+---
+
+## 📂 Repository Structure
+
+```
+.
+├── README.md                 # This documentation
+└── screenshots/              # Folder for screenshots
