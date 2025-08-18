@@ -1,77 +1,131 @@
-# 🕵️‍♂️ Deceptinet – Honeypot-Based Intrusion Detection & Analysis
+# 🛡️ Wazuh-DeceptiNet – Honeypot Integration with Wazuh SIEM
 
-Deceptinet is a **containerized multi-service honeypot environment** designed for capturing, analyzing, and enriching attacker activity data.  
-It currently includes an **SSH honeypot** (Cowrie) and can be extended with web, SMB, RDP, and other protocol traps.  
-Logs are stored locally in structured JSON format for easy parsing and can be forwarded to a SIEM (Wazuh, Splunk, Elastic Stack) for real-time threat detection.
+**Wazuh-DeceptiNet** integrates the existing **[Deceptinet](https://github.com/Saassoso/Deceptinet)** honeypot project with **Wazuh SIEM** for centralized monitoring and analysis of honeypot attacks. This setup provides real-time threat detection and comprehensive logging of all honeypot activities.
 
 ---
 
-## 📌 Features
-- **SSH Honeypot with Cowrie** – Captures authentication attempts, executed commands, and file downloads.
-- **Customizable Configuration** – Fake hostname, filesystem, and service banners to lure attackers.
-- **Structured JSON Logs** – Easy to parse with SIEMs or the included Python analyzer.
-- **Dockerized Deployment** – Quick setup with `docker-compose`.
-- **Extensible** – Add web honeypots, malware traps, or other services.
-- **Analysis Tools** – Included Python script for top IPs, usernames, passwords, and commands.
+## 📌 Overview
+
+This project extends the **Deceptinet** honeypot platform by:
+- **Integrating honeypot logs** with Wazuh SIEM for centralized monitoring
+- **Creating custom Wazuh rules** for honeypot attack detection
+- **Building dashboards** for attack visualization and threat intelligence
+- **Enabling real-time alerts** for critical honeypot events
+
+### 🍯 Honeypot Components (from Deceptinet)
+- **SSH Honeypot** – Cowrie captures SSH attacks, commands, and downloads
+- **Web Honeypot** – Flask-based fake corporate portal for credential harvesting
+- **JSON Logging** – Structured logs for easy SIEM integration
 
 ---
 
 ## 📂 Project Structure
+
 ```
-Decetinet/
+Wazuh-DeceptiNet/
 │
-├── docker-compose.yml # Multi-service honeypot setup
-├── config/
-│ └── cowrie.cfg # Cowrie honeypot configuration
-├── logs/
-│ ├── ssh/ # Cowrie SSH logs (JSON)
-│ └── web/ # Optional web honeypot logs
-├── honeypot_analyzer.py # Python script to analyze honeypot logs
-├── sample_logs/ # Example logs for testing
-│ ├── web_attacks.json
-│ └── ssh_cowrie.json
-├── screenshots
-└── README.md
+├── README.md                    # This documentation
+├── docker-compose.yml           # Honeypot services (from Deceptinet)
+├── .gitignore                   # Git configuration
+│
+├── config/                      # Honeypot configurations
+│   └── cowrie.cfg              # SSH honeypot settings
+│
+├── web-honeypot/               # Web honeypot service
+│   ├── Dockerfile              # Container build
+│   └── app.py                  # Flask honeypot application
+│
+├── wazuh-integration/          # Wazuh SIEM integration files
+│   ├── rules/                  # Custom Wazuh rules for honeypots
+│   │   ├── honeypot-ssh.xml    # SSH honeypot detection rules
+│   │   └── honeypot-web.xml    # Web honeypot detection rules
+│   └── ossec.conf             # Agent configuration for log monitoring
+│
+├── analyze.py  # Local honeypot log analyzer     
+└── screenshots/               # Documentation images
 ```
 
 ---
 
-## 🚀 Deployment
-### 1️⃣ Clone the repository
-```bash
-git clone https://github.com/Saassoso/Decetinet.git
-cd Decetinet
-```
+## 🚀 Deployment Guide
 
-### 2️⃣ Configure the honeypot
-
-- Edit config/cowrie.cfg to customize:
-    - Fake hostname
-    - Listening port (2222 default)
-    - Banner (e.g., SSH-2.0-OpenSSH_6.0p1 Debian-4+deb7u2)
-
-### 3️⃣ Start the honeypot
+### 1️. Deploy Deceptinet Honeypots
 
 ```bash
+# Clone and start honeypots
+git clone https://github.com/YourUsername/Wazuh-DeceptiNet.git
+cd Wazuh-DeceptiNet
+
+# Start honeypot services
 docker-compose up -d
+
+# Verify services are running
+docker-compose ps
 ```
 
-📊 Log Analysis
-Run the included Python analyzer to get top attacker IPs, usernames, passwords, and commands:
+### 2. Create log directories and files :
 
 ```bash
-python honeypot_analyzer.py
+sudo mkdir /var/log/honeypot
+
+sudo touch /var/log/honeypot/cowrie.json
+
+sudo touch /var/log/honeypot/attaks.json
 ```
-Example output:
+-
+![Logs-directories](./screenshots/02-log-directorie.png)
+-
 
-![Analyzer-test](./screenshots/01-analyser.png)
+### 3. Wazuh Agent Configuration (ossec.conf)
 
-## Progress
+![Agent-configuration](./screenshots/03-local-file.png)
 
-- [X] **SSH-HoneyPot** (Cowrie)
-- [ ] **Multi-Protocol Honeypots** (Cowrie)
-- [X] **Web Honeypot** (Flask fake login)
-- [ ] **Dionaea for malware capture**
-- [ ] **Threat Intel Integration**
-- [ ] **Auto-Run Script** (Cron Job)
 
+### 4.Custom Wazuh Rules :
+-Create custom Wazuh rules for :
+
+    **Cowrie**
+
+![Cowrie-rule](./screenshots/04-Cowrie-rule.png)
+
+
+    **Web HoneyPot**
+
+![Web-Honepot-rule](./screenshots/05-Web-Honepot-rule.png)
+
+
+
+# Restart Wazuh Manager
+```bash
+sudo systemctl restart wazuh-manager
+```
+
+---
+
+## 📊 Monitoring & Analysis
+
+
+### Wazuh SIEM Analysis
+- **Navigate to Wazuh Dashboard** → Security Events
+- **Filter by Rule Groups:** `honeypot`, `ssh_honeypot`, `web_honeypot`
+- **Create custom dashboards** for attack visualization
+- **Set up email alerts** for high-priority honeypot events
+
+    ![Wazuh-alert-Monitoring](./screenshots/06-wazuh-alert.png)
+
+---
+
+## 📈 Current Status & Roadmap
+
+### ✅ Completed Features
+- [x] **SSH Honeypot** (Cowrie) with Wazuh integration
+- [x] **Web Honeypot** (Flask) with structured logging
+- [x] **Wazuh SIEM integration** with custom rules
+- [x] **Docker deployment** for easy setup
+- [x] **Local log analysis** tools
+
+### 🎯 Future Enhancements
+- [ ] **Dionaea Integration** – Low-interaction honeypot for malware capture
+- [ ] **Additional Protocols** – RDP, SMB, FTP honeypots
+
+---
