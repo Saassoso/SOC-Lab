@@ -41,7 +41,6 @@ Wazuh-DeceptiNet/
 │   │   └── honeypot-web.xml    # Web honeypot detection rules
 │   └── ossec.conf             # Agent configuration for log monitoring
 │
-├── analyze.py  # Local honeypot log analyzer     
 └── screenshots/               # Documentation images
 ```
 
@@ -52,8 +51,7 @@ Wazuh-DeceptiNet/
 ### 1️. Deploy Deceptinet Honeypots
 
 ```bash
-# Clone and start honeypots
-git clone https://github.com/YourUsername/Wazuh-DeceptiNet.git
+# Go to  honeypots directory
 cd Wazuh-DeceptiNet
 
 # Start honeypot services

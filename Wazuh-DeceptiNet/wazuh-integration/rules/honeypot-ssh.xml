@@ -1,0 +1,38 @@
+
+<!-- Cowrie honeypot SSH rules -->
+<group name="cowrie,ssh">
+  <!-- SSH connection -->
+  <rule id="100103" level="7">
+    <field name="eventid">cowrie.session.connect</field>
+    <description>New SSH connection detected on Cowrie honeypot</description>
+    <group>cowrie,ssh,connection</group>
+  </rule>
+
+  <!-- SSH client version -->
+  <rule id="100104" level="5">
+    <field name="eventid">cowrie.client.version</field>
+    <description>SSH client version reported</description>
+    <group>cowrie,ssh,client</group>
+  </rule>
+
+  <!-- SSH KEX fingerprint -->
+  <rule id="100105" level="6">
+    <field name="eventid">cowrie.client.kex</field>
+    <description>SSH client hassh fingerprint detected</description>
+    <group>cowrie,ssh,kex</group>
+  </rule>
+
+  <!-- SSH session closed -->
+  <rule id="100106" level="4">
+    <field name="eventid">cowrie.session.closed</field>
+    <description>SSH session closed</description>
+    <group>cowrie,ssh,closed</group>
+  </rule>
+
+  <!-- Login attempts -->
+  <rule id="100107" level="11" ignore="600">
+    <field name="eventid">cowrie.login.failed</field>
+    <description>$(username) tried to login to honeypot.</description>
+    <group>cowrie,ssh,login,failed</group>
+  </rule>
+</group>

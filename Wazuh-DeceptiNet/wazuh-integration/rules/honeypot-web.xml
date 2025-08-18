@@ -1,0 +1,29 @@
+<group name="honeypot,web">
+  <!-- Page visit -->
+  <rule id="210100" level="3">
+    <match>"event": "PAGE_VISIT"</match>
+    <description>Honeypot page visit detected</description>
+    <group>honeypot,visit</group>
+  </rule>
+
+  <!-- Login attempt -->
+  <rule id="210101" level="8">
+    <match>"event": "LOGIN_ATTEMPT"</match>
+    <description>Honeypot login attempt detected</description>
+    <group>honeypot,login</group>
+  </rule>
+
+  <!-- Multiple login attempts (bruteforce) 
+  <rule id="210102" level="12" frequency="3" timeframe="60">
+    <match>"event": "LOGIN_ATTEMPT"</match>
+    <description>Multiple honeypot login attempts (possible brute force)</description>
+    <group>honeypot,bruteforce</group>
+  </rule> -->
+
+  <!-- Suspicious user-agent (curl) -->
+  <rule id="210103" level="6">
+    <regex>"user_agent": ?"curl/[0-9.]+"</regex>
+    <description>Suspicious automated scanner detected (cURL)</description>
+    <group>honeypot,scanner</group>
+  </rule>
+</group>
