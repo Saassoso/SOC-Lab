@@ -81,12 +81,11 @@ sudo touch /var/log/honeypot/attaks.json
 
 ### 4.Custom Wazuh Rules :
 -Create custom Wazuh rules for :
-
-    **Cowrie**
+.
+    __Cowrie__
 
 ![Cowrie-rule](./screenshots/04-Cowrie-rule.png)
-
-
+.
     **Web HoneyPot**
 
 ![Web-Honepot-rule](./screenshots/05-Web-Honepot-rule.png)
