@@ -90,7 +90,17 @@ sudo touch /var/log/honeypot/attaks.json
 
 ![Web-Honepot-rule](./screenshots/05-Web-Honepot-rule.png)
 
+## Important :
 
+You need to change the default value of **analysisd.decoder_order_size** ( 1024 ) :
+```bash
+sudo /var/ossec/etc/internal_options.conf 
+```
+![important](07-important.png)
+
+Or ELSE :
+
+![Too-Many-Fields](./screenshots/08-error-fields.png)
 
 # Restart Wazuh Manager
 ```bash
