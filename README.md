@@ -4,11 +4,11 @@
 This repository documents the comprehensive setup of a SOC (Security Operations Center) lab using multiple virtual machines. The lab implements a complete security monitoring infrastructure with Wazuh SIEM as the central platform, featuring multiple detection capabilities across different operating systems and security domains.
 
 📄 **Documentation Index:**
-- [01 – Wazuh Manager Installation](#wazuh-manager-installation)
-- [02 – Wazuh Agent Installation](#wazuh-agents-installation)
-- [03 – File Integrity Monitoring (FIM)](#file-integrity-monitoring-fim)
-- [04 – Network-Based Intrusion Detection (IDS)](#network-based-intrusion-detection-ids)
-- [05 – Honeypot Integration (DeceptiNet)](#honeypot-integration-deceptinet)
+- [01 – Wazuh Manager Installation](Wazuh-Installation/README.md)
+- [02 – Wazuh Agent Installation](Wazuh-Agents/README.md)
+- [03 – File Integrity Monitoring (FIM)](Wazuh-FIM/README.md)
+- [04 – Network-Based Intrusion Detection (IDS)](Wazuh-IDS/README.md)
+- [05 – Honeypot Integration (DeceptiNet)](Wazuh-DeceptiNet/README.md)
 
 ---
 
