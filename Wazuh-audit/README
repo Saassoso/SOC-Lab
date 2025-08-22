@@ -86,3 +86,34 @@ Wazuh-audit/
 ✅ **Rule-Based Filtering** - Reduce noise with targeted monitoring  
 ✅ **Efficient Log Processing** - Optimized for high-volume environments  
 ✅ **Resource Management** - Minimal system impact configuration  
+
+---
+
+## Security Use Cases
+
+### 🎯 Threat Detection Scenarios
+
+**Account Compromise Detection**
+- Monitor failed authentication attempts
+- Detect unusual account creation/modification
+- Track privilege escalation activities
+
+**Lateral Movement Detection**
+- Network connection monitoring
+- Remote process execution detection
+- Credential usage tracking across systems
+
+**Persistence Mechanism Detection**
+- Registry modification monitoring (Windows)
+- Startup script modifications (Linux)
+- Scheduled task creation and modification
+
+**Data Exfiltration Detection**
+- Large file access patterns
+- Network connection anomalies
+- Unusual data access by user accounts
+
+---
+
+**Last Updated**: August 2025  
+**Documentation**: Complete with testing procedures
