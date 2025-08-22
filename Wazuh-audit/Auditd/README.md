@@ -11,7 +11,7 @@ The integration enables real-time monitoring of critical system activities with 
 ## Prerequisites
 
 ### System Requirements
-- **Operating System**: Linux (Ubuntu 20.04+, CentOS 7+, RHEL 7+)
+- **Operating System**: Linux 
 - **Privileges**: Root or sudo access required
 - **Disk Space**: Minimum 2GB for audit logs (varies by activity level)
 - **Network**: Connectivity to Wazuh Manager (192.168.88.130)

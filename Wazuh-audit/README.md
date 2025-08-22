@@ -49,17 +49,11 @@ Wazuh-audit/
 ├── README.md                     # This overview document
 ├── Auditd/
 │   ├── README.md                 # Auditd installation and configuration
-│   ├── configs/
-│   │   ├── ossec.conf           # Wazuh agent configuration
-│   │   └── audit.rules           # Auditd rules configuration
-│   ├── rules/
-│   │   └── custom-auditd.xml    # Custom Wazuh detection rules
 │   └── screenshots/             # Linux audit screenshots
 └── Sysmon/
     ├── README.md                 # Sysmon installation and configuration
     ├── configs/
-    │   ├── sysmon-config.xml    # Sysmon configuration file
-    │   └── ossec.conf           # Wazuh agent configuration
+    │   └── sysmon-config.xml    # Sysmon configuration file
     └── screenshots/             # Windows Sysmon screenshots
  
 ```
