@@ -106,9 +106,9 @@ The who-data functionality allows the FIM module to obtain information about who
 ![provider-tag](./screenshots/10-provider-tag.png)
 
 **Use Cases** :
-    ***- Monitor changes in the /etc/hosts.allow file on Linux :***
+-    *** Monitor changes in the /etc/hosts.allow file on Linux :***
 ![Monitor-changes](./screenshots/11-Monitor-changes.png)
-    ***- Detecting Account Manipulation :***
+ -   *** Detecting Account Manipulation :***
 ![Account-Manipulation](./screenshots/12-Account-Manipulation.png)
 
 #### Test Result :
