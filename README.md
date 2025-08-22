@@ -9,6 +9,7 @@ This repository documents the comprehensive setup of a SOC (Security Operations 
 - [03 – File Integrity Monitoring (FIM)](Wazuh-FIM/README.md)
 - [04 – Network-Based Intrusion Detection (IDS)](Wazuh-IDS/README.md)
 - [05 – Honeypot Integration (DeceptiNet)](Wazuh-DeceptiNet/README.md)
+- [06 – System Audit Integration](Wazuh-audit/README.md)
 
 ---
 
@@ -22,6 +23,9 @@ This repository documents the comprehensive setup of a SOC (Security Operations 
 ├── Wazuh-FIM/
 ├── Wazuh-IDS/
 ├── Wazuh-DeceptiNet/
+├── Wazuh-System-Audit/
+│   ├── Auditd/
+│   └── Sysmon/
 └── Lab-Notes/
     ├── lessons-learned.md
     └── future-enhancements.md
@@ -94,6 +98,25 @@ This repository documents the comprehensive setup of a SOC (Security Operations 
   - Real-time attack detection and alerting
   - Threat intelligence gathering from honeypot interactions
 
+### Phase 5: System Audit Integration ✅
+- [x] **Linux Auditd Integration** - Advanced system call monitoring
+  - Comprehensive audit rules for process execution monitoring
+  - Account manipulation detection and alerting
+  - File access monitoring with user attribution (who-data)
+  - Privilege escalation and sudo usage monitoring
+  - Network connection tracking and analysis
+- [x] **Windows Sysmon Integration** - Enhanced Windows event logging
+  - Process creation and termination monitoring
+  - Network connection tracking with destination details
+  - File system activity monitoring
+  - Registry modification detection
+  - Image and DLL loading events
+- [x] **Advanced Threat Detection**
+  - PowerShell encoded command detection
+  - Living-off-the-land binary abuse monitoring
+  - Persistence mechanism identification
+  - Lateral movement detection capabilities
+
 ---
 
 ## Security Monitoring Capabilities
@@ -101,7 +124,14 @@ This repository documents the comprehensive setup of a SOC (Security Operations 
 ### 🛡️ Host-Based Detection
 - **File Integrity Monitoring**: Real-time detection of unauthorized file/registry changes
 - **System Activity Monitoring**: Process execution, user authentication, system modifications
+- **System Audit Integration**: Comprehensive system call and event monitoring
 - **Multi-OS Coverage**: Windows, Linux (multiple distributions)
+
+### 🔍 Advanced Monitoring
+- **Process Execution Tracking**: Complete command-line and process ancestry
+- **Account Management Monitoring**: User creation, modification, privilege changes
+- **Network Activity Analysis**: Connection tracking with process attribution
+- **Registry Monitoring**: Windows persistence and configuration changes
 
 ### 🌐 Network-Based Detection  
 - **Intrusion Detection**: Suricata IDS with Emerging Threats rules
@@ -117,6 +147,7 @@ This repository documents the comprehensive setup of a SOC (Security Operations 
 - **Unified Dashboard**: Single pane of glass for all security events
 - **Custom Rules**: Tailored detection logic for specific threats
 - **Alert Correlation**: Multi-source event analysis and threat hunting
+- **MITRE ATT&CK Mapping**: Technique-based threat classification
 
 ---
 
@@ -133,6 +164,7 @@ This repository documents the comprehensive setup of a SOC (Security Operations 
 3. **[Configure FIM](Wazuh-FIM/README.md)** - File integrity monitoring
 4. **[Deploy Suricata IDS](Wazuh-IDS/README.md)** - Network intrusion detection
 5. **[Setup Honeypots](Wazuh-DeceptiNet/README.md)** - Deception technology
+6. **[Configure System Auditing](Wazuh-audit/README.md)** - Advanced system monitoring
 
 ### Access Points
 - **Wazuh Dashboard**: `https://192.168.88.130`
@@ -142,11 +174,6 @@ This repository documents the comprehensive setup of a SOC (Security Operations 
 ---
 
 ## Future Roadmap
-
-### Phase 5: Advanced Monitoring (Planned)
-- [ ] **System Audit Integration** - Sysmon (Windows) and Auditd (Linux)
-- [ ] **Log Collection Enhancement** - Additional log sources integration
-- [ ] **Container Security** - Docker and Kubernetes monitoring
 
 ### Phase 6: Security Assessment (Planned)
 - [ ] **Security Configuration Assessment (SCA)** - Compliance monitoring
@@ -158,17 +185,70 @@ This repository documents the comprehensive setup of a SOC (Security Operations 
 - [ ] **Machine Learning** - Behavioral analysis and anomaly detection
 - [ ] **Cloud Integration** - AWS/Azure security monitoring
 
+### Phase 8: Container Security (Planned)
+- [ ] **Docker Security** - Container runtime monitoring
+- [ ] **Kubernetes Integration** - Orchestration platform security
+- [ ] **Container Image Scanning** - Vulnerability assessment
+
 ---
 
 ## Key Features
 
 ✅ **Multi-Platform Support** - Windows, Linux, containers  
 ✅ **Real-Time Monitoring** - File integrity, network traffic, system events  
+✅ **Advanced System Auditing** - Process execution, account management, privilege escalation  
 ✅ **Deception Technology** - Honeypots for threat intelligence  
+✅ **Network Intrusion Detection** - Traffic analysis and threat detection  
 ✅ **Centralized Management** - Single dashboard for all security events  
-✅ **Custom Detection Rules** - Tailored threat detection logic  
+✅ **Custom Detection Rules** - Tailored threat detection logic with MITRE mapping  
 ✅ **Scalable Architecture** - Agent-based deployment model  
 ✅ **Open Source** - Cost-effective security monitoring solution
+
+---
+
+## Security Use Cases Covered
+
+### 🎯 Threat Detection Scenarios
+
+**Initial Access & Execution**
+- Malicious process execution detection
+- Script-based attack identification
+- Living-off-the-land binary abuse
+
+**Persistence & Privilege Escalation**
+- Registry modification monitoring
+- Account manipulation detection
+- Sudo/privilege escalation tracking
+
+**Defense Evasion & Discovery**
+- PowerShell obfuscation detection
+- System reconnaissance monitoring
+- Anti-forensics technique identification
+
+**Lateral Movement & Exfiltration**
+- Network connection analysis
+- Credential usage tracking
+- Data access pattern anomalies
+
+**Impact & Collection**
+- File system modification tracking
+- Service disruption detection
+- Data collection behavior analysis
+
+---
+
+## Compliance & Standards
+
+### Regulatory Compliance
+✅ **PCI-DSS** - Payment card industry data security standards  
+✅ **GDPR** - General data protection regulation compliance  
+✅ **HIPAA** - Healthcare information privacy and security  
+✅ **SOX** - Sarbanes-Oxley financial compliance  
+
+### Security Frameworks
+✅ **MITRE ATT&CK** - Threat technique mapping and detection  
+✅ **NIST Cybersecurity Framework** - Risk management alignment  
+✅ **CIS Controls** - Critical security control implementation  
 
 ---
 
@@ -180,11 +260,13 @@ Each component includes comprehensive documentation with:
 - Screenshots for visual guidance
 - Troubleshooting sections
 - Performance tuning recommendations
+- Security rule customization examples
+- Testing and validation procedures
 
 For specific implementation details, refer to the individual component documentation linked in the repository structure above.
 
 ---
 
-**Lab Status**:  
+**Lab Status**: 
 **Last Updated**: August 2025  
-**Documentation**: Complete for all implemented phases
+**Documentation**: Uncomplete for all implemented phases  
