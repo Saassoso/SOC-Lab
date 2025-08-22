@@ -1,0 +1,88 @@
+# Wazuh System Audit Integration - Auditd & Sysmon
+
+## Overview
+
+This document covers the integration of system audit capabilities with Wazuh SIEM using **Auditd** (Linux) and **Sysmon** (Windows). These tools provide detailed system activity monitoring, including process execution, network connections, file modifications, and security-relevant events that enhance threat detection capabilities.
+
+System audit integration enables advanced threat hunting, compliance monitoring, and behavioral analysis across heterogeneous environments by capturing granular system events and forwarding them to the Wazuh Manager for centralized analysis.
+
+---
+
+## Integration Components
+
+| Component | Platform | Purpose | Installation Guide |
+| --------- | -------- | ------- | ------------------ |
+| **Auditd** | Linux | System call auditing, file access monitoring | [📖 Auditd Integration](./Auditd/README.md) |
+| **Sysmon** | Windows | Advanced Windows event logging | [📖 Sysmon Integration](./Sysmon/README.md) |
+
+---
+
+## General Server Configuration
+
+All audit integrations communicate with the Wazuh Manager at:
+**192.168.88.130**
+
+---
+
+## Monitoring Capabilities
+
+### 🐧 Linux Auditd Monitoring
+- **System Call Auditing**: Process execution, file access, network connections
+- **Account Management**: User creation, modification, privilege escalation
+- **File Integrity**: Real-time file modification detection with "who" data
+- **Network Activity**: Socket creation, connection establishment
+- **Privilege Escalation**: Sudo usage, setuid execution monitoring
+
+### 🪟 Windows Sysmon Monitoring
+- **Process Activity**: Process creation, termination, image loads
+- **Network Connections**: TCP/UDP connections, DNS queries
+- **File System**: File creation, modification, stream creation
+- **Registry Activity**: Registry key/value modifications
+- **Image/Driver Loads**: DLL loading, driver installation events
+
+---
+
+## Directory Structure
+
+```
+Wazuh-audit/
+├── README.md                     # This overview document
+├── Auditd/
+│   ├── README.md                 # Auditd installation and configuration
+│   ├── configs/
+│   │   ├── ossec.conf           # Wazuh agent configuration
+│   │   └── audit.rules           # Auditd rules configuration
+│   ├── rules/
+│   │   └── custom-auditd.xml    # Custom Wazuh detection rules
+│   └── screenshots/             # Linux audit screenshots
+└── Sysmon/
+    ├── README.md                 # Sysmon installation and configuration
+    ├── configs/
+    │   ├── sysmon-config.xml    # Sysmon configuration file
+    │   └── ossec.conf           # Wazuh agent configuration
+    └── screenshots/             # Windows Sysmon screenshots
+ 
+```
+
+---
+
+## Key Features
+
+### Enhanced Detection Capabilities
+✅ **Process Execution Monitoring** - Track all process creation with command lines  
+✅ **Account Manipulation Detection** - Monitor user/group modifications  
+✅ **File System Monitoring** - Real-time file access with user attribution  
+✅ **Network Connection Tracking** - Monitor all network activity  
+✅ **Registry Monitoring** - Windows registry change detection  
+✅ **Privilege Escalation Detection** - Monitor sudo usage and privilege changes  
+
+### Compliance & Forensics
+✅ **Audit Trail Generation** - Complete system activity logging  
+✅ **Who Data Support** - User attribution for file system events  
+✅ **Regulatory Compliance** - Support for PCI-DSS, SOX, HIPAA requirements  
+✅ **Forensic Analysis** - Detailed event reconstruction capabilities  
+
+### Performance Optimization
+✅ **Rule-Based Filtering** - Reduce noise with targeted monitoring  
+✅ **Efficient Log Processing** - Optimized for high-volume environments  
+✅ **Resource Management** - Minimal system impact configuration  
