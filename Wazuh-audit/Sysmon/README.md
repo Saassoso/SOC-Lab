@@ -40,7 +40,7 @@ Expand-Archive -Path "C:\Users\Win11\Downloads\Sysmon.zip"-DestinationPath "C:\y
 ![00-Sysmon-Dowload](./screenshots/00-Sysmon-Dowload.png)
 
 #### Alternative: Direct Download
-Visit: https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
+Visit: [Dowload-Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
 
 ![Direct-Download](./screenshots/01-Direct-Download.png)
 
@@ -50,9 +50,40 @@ Visit: https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
 
 - Pre-Grenerated configurations default+ config file , a balanced configuration, most used, more information including FileDelete file saves.
 
-[olafhartong/sysmon-modular](https://github.com/olafhartong/sysmon-modular)
+Visit: [olafhartong/sysmon-modular](https://github.com/olafhartong/sysmon-modular)
 
 **Sysmon Configuration (sysmonconfig.xml):**
 ![Sysmon-Configuration](./screenshots/02-Sysmon-Configuration.png)
 
-### Step 3 : 
+### Step 3 : Install Sysmon with Configuration
+
+#### Install Sysmon Service
+```powershell
+# Navigate to Sysmon directory
+cd C:\Sysmon
+
+# Install Sysmon with configuration file
+.\Sysmon64.exe -accepteula -i sysmonconfig.xml
+```
+![Sysmon-Installation](./screenshots/03-Sysmon-Installation.png)
+
+### Step 4: Configure Wazuh Agent for Sysmon
+
+#### Edit Wazuh Agent Configuration
+```powershell
+# Edit the Wazuh agent configuration file
+notepad "C:\Program Files (x86)\ossec-agent\ossec.conf"
+```
+**Wazuh Agent Configuration for Sysmon:**
+![Wazuh-Agent-integration](./screenshots/04-Wazuh-Agent-integration.png)
+
+#### Restart Wazuh Agent Service
+```powershell
+# Restart Wazuh Agent service
+Restart-Service -Name "WazuhSvc"
+```
+![Wazuh-Agent-Restart](./screenshots/05-Wazuh-Agent-Restart.png)
+
+#### Test Result :
+
+![Test-Result](./screenshots/06-Test-Result.png)
