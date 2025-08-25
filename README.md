@@ -10,6 +10,8 @@ This repository documents the comprehensive setup of a SOC (Security Operations 
 - [04 – Network-Based Intrusion Detection (IDS)](Wazuh-IDS/README.md)
 - [05 – Honeypot Integration (DeceptiNet)](Wazuh-DeceptiNet/README.md)
 - [06 – System Audit Integration](Wazuh-audit/README.md)
+- [📋 SOC Operations](Lab-Notes/SOC-Runbook.md)        
+- [🎯 Detection Use Cases](Lab-Notes/detection-use-cases.md)  
 
 ---
 
