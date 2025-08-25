@@ -1,6 +1,6 @@
 # Lab Network Topology
 
-````
+```
 Internet
     |
 Router (192.168.88.1)
