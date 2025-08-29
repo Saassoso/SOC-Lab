@@ -17,7 +17,7 @@ Each agent will be assigned a unique name and group for better management and wi
 | Windows 11      | 22H2          | W11        | default | [📖 Windows 11 Guide](./Windows/README.md) |
 | Kali Linux      | 2023.1        | kali       | default | [📖 Kali Linux Guide](./kali/README.md) |
 | RHEL            | 10            | RHEL       | default | [📖 RHEL Guide](./RHEL/README.md) |
-| Windows WSL2    | Ubuntu 24.04  | WSL        | default | [📖 WSL Ubuntu Guide](./WSL/README.md) |
+| Windows WSL2    | Ubuntu 24.04  | WSL        | default | [📖 WSL Ubuntu Guide](./WSl/README.md) |
 
 ---
 
